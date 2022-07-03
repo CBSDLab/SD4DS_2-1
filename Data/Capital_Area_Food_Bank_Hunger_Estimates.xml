@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+    <idinfo>
+        <citation>
+            <citeinfo>
+                <pubdate>20160501</pubdate>
+                <title>Capital Area Food Bank Hunger Estimates</title>
+                <geoform>vector digital data</geoform>
+                <onlink>https://maps2.dcgis.dc.gov/dcgis/rest/services/DCGIS_DATA/Public_Service_WebMercator/MapServer/62</onlink>
+            </citeinfo>
+        </citation>
+        <descript>
+            <abstract>Polygons in this layer represent Census Tracts in the DMV (DC, Maryland, and Virginia). Data are included for each tract which estimate hunger and food insecurity. Data were compiled by the CAFB through internal tracking, and the layer was shared with the DC government as a courtesy. Fields include (all available for 2015 and 2014):15_FI_Rate: The estimated portion of the population in the census tract experiencing food insecurity (by CAFB standards). 15/14 indicates year measured.15_FI_Pop: The estimated number of people in the census tract experiencing food insecurity (by CAFB standards). 15/14 indicates year measured.15_LB_Need: The estimated pounds of food needed by the food insecure population in the census tract. 15/14 indicates year measured.15_Distrib: The number of pounds of food distributed by CAFB and partners in the census tract. 15/14 indicates year in which the distribution took place.15_LB_Unme: The difference between the estimated pounds of food needed and the real pounds of food distributed by CAFB and partners, representing the unmet need for food assistance in the census tract. 15/14 indicates year.The layer was shared with the DC government in May 2016 and is based on 2015 and 2014 data.</abstract>
+            <purpose>Census Tracts in the DMV (DC, Maryland, and Virginia) including estimates for hunger and food insecurity compiled by the Capital Area Food Bank.</purpose>
+        </descript>
+        <spdom>
+            <bounding>
+                <westbc>-77.11761902709947</westbc>
+                <eastbc>-76.9133419885255</eastbc>
+                <northbc>38.974705428123585</northbc>
+                <southbc>38.81357754398006</southbc>
+            </bounding>
+        </spdom>
+        <keywords>
+            <theme>
+                <themekt>None</themekt>
+                <themekey>Food Policy</themekey>
+                <themekey>Capital Area Food Bank</themekey>
+                <themekey>CAFB</themekey>
+                <themekey>Food Access</themekey>
+                <themekey>Hunger</themekey>
+                <themekey>Food Insecurity</themekey>
+            </theme>
+            <theme>
+                <themekt>ISO 19115 Topic Categories</themekt>
+                <themekey>society</themekey>
+            </theme>
+            <place>
+                <placekt>None</placekt>
+                <placekey>Washington D.C.</placekey>
+                <placekey>DC</placekey>
+                <placekey>District of Columbia</placekey>
+            </place>
+        </keywords>
+        <accconst>Other Constraints</accconst>
+        <useconst>This work is licensed under a Creative Commons Attribution 4.0 International License.</useconst>
+        <ptcontac>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>D.C. Office of the Chief Technology Officer</cntorg>
+                    <cntper>GIS Data Coordinator</cntper>
+                </cntorgp>
+                <cntaddr>
+                    <addrtype>mailing and physical</addrtype>
+                    <address>200 I Street SE, 5th Floor</address>
+                    <city>Washington</city>
+                    <state>DC</state>
+                    <postal>20003</postal>
+                    <country>US</country>
+                </cntaddr>
+                <cntfax>(202) 727-5660</cntfax>
+                <cntemail>dcgis@dc.gov</cntemail>
+                <hours>8:30 am - 5 pm</hours>
+            </cntinfo>
+        </ptcontac>
+        <datacred>Capital Area Food Bank</datacred>
+        <native>Version 6.2 (Build 9200) ; Esri ArcGIS 10.3.1.4959</native>
+    </idinfo>
+    <spdoinfo>
+        <direct>Vector</direct>
+        <ptvctinf>
+            <sdtsterm>
+                <sdtstype>GT-polygon composed of chains</sdtstype>
+                <ptvctcnt>0</ptvctcnt>
+            </sdtsterm>
+        </ptvctinf>
+    </spdoinfo>
+    <eainfo>
+        <detailed>
+            <enttyp>
+                <enttypl>DCGIS.CAFB_Hunger_Heat_Map</enttypl>
+            </enttyp>
+            <attr>
+                <attrlabl>OBJECTID</attrlabl>
+                <attrdef>Internal feature number.</attrdef>
+                <attrdefs>Esri</attrdefs>
+                <attrdomv>
+                                        					
+                    
+                    <udom>Sequential unique whole numbers that are automatically generated.</udom>
+                                        				
+                
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>SHAPE</attrlabl>
+                <attrdef>Feature geometry.</attrdef>
+                <attrdefs>Esri</attrdefs>
+                <attrdomv>
+                                        					
+                    
+                    <udom>Coordinates defining the features.</udom>
+                                        				
+                
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>STATEFP10</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>COUNTYFP10</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>TRACTCE10</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>GEOID10</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>NAME10</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>NAMELSAD10</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>MTFCC10</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>FUNCSTAT10</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>ALAND10</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>AWATER10</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>Geograph</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>Tract</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>Poverty200</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>TRACTCE</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>Percent_Ca</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>Percent_Tr</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>Percent_Wa</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>Total_Pop</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>Unemployme</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>Poverty_Ra</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>Median_Inc</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>Percent_Bl</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>Percent_Hi</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>Home_Own</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>F15_FI_Rate</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>F15_FI_Pop</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>F15_LB_Need</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>F15_LB_Unme</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>F15_Distrib</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>F15_PPIN</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>FY_FI_Rate</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>FY_FI_Pop</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>FY_LB_Unme</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>FY_Distrib</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>FY_PPIN</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>F14_FI_Rate</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>F14_LB_Unme</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>F14_Distrib</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>F14_PPIN</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>SHAPE.AREA</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>SHAPE.LEN</attrlabl>
+            </attr>
+        </detailed>
+    </eainfo>
+    <distinfo>
+        <distrib>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>D.C. Office of the Chief Technology Officer</cntorg>
+                    <cntper>GIS Data Coordinator</cntper>
+                </cntorgp>
+                <cntaddr>
+                    <addrtype>mailing and physical</addrtype>
+                    <address>200 I Street SE, 5th Floor</address>
+                    <city>Washington</city>
+                    <state>DC</state>
+                    <postal>20003</postal>
+                    <country>US</country>
+                </cntaddr>
+                <cntfax>(202) 727-5660</cntfax>
+                <cntemail>dcgis@dc.gov</cntemail>
+                <hours>8:30 am - 5 pm</hours>
+            </cntinfo>
+        </distrib>
+        <distliab>See access and use constraints information.</distliab>
+        <custom>DC datasets can be downloaded from "http://opendata.dc.gov".</custom>
+    </distinfo>
+    <metainfo>
+        <metd>20180224</metd>
+        <metc>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>D.C. Office of the Chief Technology Officer</cntorg>
+                    <cntper>GIS Data Coordinator</cntper>
+                </cntorgp>
+                <cntaddr>
+                    <addrtype>mailing and physical</addrtype>
+                    <address>200 I Street SE, 5th Floor</address>
+                    <city>Washington</city>
+                    <state>DC</state>
+                    <postal>20003</postal>
+                    <country>US</country>
+                </cntaddr>
+                <cntfax>(202) 727-5660</cntfax>
+                <cntemail>dcgis@dc.gov</cntemail>
+                <hours>8:30 am - 5 pm</hours>
+            </cntinfo>
+        </metc>
+        <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+        <metstdv>FGDC-STD-001-1998</metstdv>
+        <mettc>local time</mettc>
+    </metainfo>
+</metadata>
