@@ -94,7 +94,7 @@ ggsave("Models/DMV.svg")
 The DMV data has a variable `F15_FI_RAT` representing the prevalence of food insecurity, which needs to be exported to a .csv file that can then be imported into a Stella model. Note that the dimension of the array has to equal the length of the variable. 
 
 ```{r export initial values to .csv file}
-write.csv(list(F15_FI_RAT=DMV$F15_FI_RAT), file = "F15_FI_RAT.csv", row.names=FALSE)
+write.csv(list(F15_FI_RAT=DMV$F15_FI_RAT), file = "Models/F15_FI_RAT.csv", row.names=FALSE)
 length(DMV$F15_FI_RAT)
 ```
 
