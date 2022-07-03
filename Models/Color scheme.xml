@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<isee:color_scheme blend_colors="true" name="FI range">
+	<isee:range default="true" color="white"/>
+	<isee:range start="0" color="#008F00"/>
+	<isee:range start="0.5" color="#FF2600"/>
+</isee:color_scheme>
+
