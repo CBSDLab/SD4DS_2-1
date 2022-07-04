@@ -39,7 +39,7 @@ Variable   | Description
 15_Distrib | The number of pounds of food distributed by CAFB and partners in the census tract. 15/14 indicates year in which the distribution took place.
 15_LB_Unme | The difference between the estimated pounds of food needed and the real pounds of food distributed by CAFB and partners, representing the unmet need for food assistance in the census tract. 15/14 indicates year.
 
-# Importing, plotting, and exporting shapefile basics
+# R basics for importing, plotting, and exporting shapefile to SVG
 
 Shapefiles are commonly available as files with a .shp extension. The `st_read` function from the `sf` package is used to import shape files.
 
@@ -47,29 +47,46 @@ Shapefiles are commonly available as files with a .shp extension. The `st_read` 
 # Import DC, Maryland, and Virginia region shape files
 DMV <- st_read("Data/Capital_Area_Food_Bank_Hunger_Estimates.shp")
 ```
+Next, we plot the shapefile and export this to an SVG file.
 
 ```{r test plotting}
 # Plot shape file
 ggplot(data = DMV) +
   geom_sf()
+
+# Saving the shapefile as a SVG
+ggsave("DMV_demo.svg")
+```
+
+Note that in the plot above, we have the longitude and lattitude coordinates, a gray background, and gridlines, which may not want. Additionally, we don't have any data plotted. The `ggplot` package has many options for controlling graphics. For example, we can plot the food insecurity rate with a gradient as shown below.
+
+```{r plotting food insecurity rate}
+ggplot(data = DMV) +
+  scale_fill_viridis_c(option = "magma") +
+  geom_sf(aes(fill = F15_FI_RAT))
 ```
 
 # Approach
 
+The basic approaches uses the fact the Stella models are stored using the XMILE standard, an official extension of the XML markup language, which can be read and manipulated in R as a text file or XML object. For this exercise, we'll read and modify the model as a simple text file since what we want to do is relatively simple.[^l]
+
+[^l]: Future versions of this could use the `XML` R package to more precisely locate and manipulate elements of the XMILE model.  
 
 1. In RStudio, import the shapefile data, generate a ggplot figure, and export this into a SVG file.
 2. In RStudio, export the data for the variable of interest to a .csv file that can imported by Stella to initialize an array.  
-3. In Stella, create a model and define the variable as an array with one element for each geographic area.
-4.  
+3. In Stella, create a model and define the variable as an array with one element for each geographic area. 
+4. In Stella interface, add the SVG file as an animation object
+5. In RStudio, read the Stella model and create a new version with the animation transformations linking the elements of animation object to the elements of the array.
 
 ## Importing the shapefile and exporting SVG file
 
+We start by importing the shapefile with the relevant data and boundary descriptions into R using the `sf` package.
 
 ```{r Improting the shapefile}
 DMV <- st_read("Data/Capital_Area_Food_Bank_Hunger_Estimates.shp")
 ```
 
-
+Note that importing the data gives some useful information about the bounding box in terms of latitude and longitude coordinates. These can provide a basis for adjusting the bounding box when the shapefiles are plotted. 
 
 ```{r Plotting shape file}
 # Plot DMV region without grids and other elements
@@ -84,6 +101,8 @@ ggplot(data = DMV) +
     text = element_blank(),
     plot.background = element_rect(fill = "white"))
 ```
+
+We then save the file as an SVG file that can be imported into an Stella interface animation object. 
 
 ```{r Exporting plot to SVG file}
 ggsave("Models/DMV.svg")
@@ -138,8 +157,47 @@ This animation object does not yet have the variable associated with an output a
   </isee:animation_object>
 ````
 
-In this case, the variable is used to set the fill opacity of the census tract. Fill opacity ranges from a value of 0 to 1. 
+In this case, the variable is used to set the fill opacity of the census tract. Fill opacity ranges from a value of 0 to 1. With a fill color of bright red, this means taht opacity = 1.0 will be the most intense while a value of 0.0 will show the background. Other options include setting the fill color to be consistent wtih a range or changing the size of an object.
 
+```{r create a new Stella/XMILE file with transformations of animation objects}
+# Create a vector to index rows in shapefile
+tract<-1:nrow(DMV)
+
+# Read in the original model
+old.stmx<-read_lines("Models/Food insecurity v3.stmx")
+
+# Find the position of the SVG object in the Stella/XMILE model
+svg.pos<-grep("DMV.svg",old.stmx)
+
+# Copy the XMILE lines up to the point of insertion for the new objects
+new.stmx<-old.stmx[1:svg.pos]
+
+new.stmx<-c(new.stmx,
+            "					<isee:animation_css_transforms>")
+
+# Insert the animation transforms for associating the variable with opacity
+for (i in tract) {
+tmp<-paste0("					  ",
+     "<isee:animation_css_transform attribute=\"fill-opacity\"", 
+     "selector=\"g:nth-child(9) &gt; path:nth-child(",i,
+     ")\" variable=\"F15_FI_RAT[",i,"]\"/>") 
+new.stmx<-c(new.stmx, tmp)
+}
+
+new.stmx<-c(new.stmx,
+            "					</isee:animation_css_transforms>")
+
+# Add the rest of the Stella/XMILE model to the new model
+new.stmx<-c(new.stmx,old.stmx[(svg.pos+1):length(old.stmx)])
+
+# Write the modified model
+write_lines(new.stmx,
+            "Models/Food insecurity v3 with animation transforms.stmx")
+```
+
+The figure below shows the resulting animation after opening the modified file saved as "Food insecurity v3 with animation transforms.stmx". Note that because this used opacity on a 0.0 to 1.0 scale, but food insecurity is in the range of 0.0 to 0.47, the visual gradient is rather limited. We could adjust this in various ways including normalizing the variable in Stella and using a gradient instead fill opacity. 
+
+![Stella interface animation from modified file](Figures/Resulting_animation.png){width=50%}
 
 
 

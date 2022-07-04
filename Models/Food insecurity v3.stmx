@@ -137,9 +137,6 @@
 				<style/>
 				<isee:animation_object x="42" y="37" width="565" height="513.445">
 					<image>r../DMV.svg</image>
-					<isee:animation_css_transforms>
-						<isee:animation_css_transform attribute="fill-opacity" selector="g:nth-child(9) &gt; path:nth-child(1)" variable="F15_FI_RAT[1]"/>
-					</isee:animation_css_transforms>
 				</isee:animation_object>
 			</view>
 			<isee:templates>
@@ -1192,4 +1189,3 @@
 		<isee:control priority="imex" name="F15_FI_RAT[9]" value="0.019"/>
 	</isee:controls>
 </xmile>
-
