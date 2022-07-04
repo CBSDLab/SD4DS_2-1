@@ -199,7 +199,13 @@ The figure below shows the resulting animation after opening the modified file s
 
 ![Stella interface animation from modified file](Figures/Resulting_animation.png){width=50%}
 
+# Next steps
 
+There are a number of ways that this approach can be extended and generalized, including:
 
+* Extend the approach to include color scales.
+* Create a function that takes a model file name , SVG filename, output file name, and variable name and then creates the modified Stella file with the animation transformations. 
+* Develop a function that modifies an existing Stella model with animation objects, e.g., allowing changes to be incorporated into a new version of the model. 
+* Rewrite the reading and writing of the Stella XMILE file using the `XML` package. 
 
 
